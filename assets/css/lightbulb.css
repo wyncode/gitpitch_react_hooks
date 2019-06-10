@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+}
+
+#room {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+#room.dark {
+  background-color: black;
+  color: white;
+}
+
+#room.light {
+  background-color: yellow;
+  color: black;
+}
+
+#lightbulb {
+  transition: all 0.3s;
+}
+
+#lightbulb.off {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#lightbulb.on {
+  visibility: visible;
+  opacity: 1;
+}
+
+#lightswitch {
+  cursor: pointer;
+}

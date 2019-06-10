@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flick The Switch!</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+      body{
+        margin: 0;
+      }
+      #room{
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        background-color: yellow;
+        color: black;
+        transition: all 0.3s;
+      }
+      #room.dark{
+        background-color: black;
+        color: white;
+      }
+      #lightbulb{
+        transition: all 0.3s;
+      }
+      #lightbulb.off{
+        visibility: hidden;
+        opacity: 0;
+      }
+      #lightswitch{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/babel">
+      class Room extends React.Component {
+        state = { lightOn: false, counter: 1 }
+
+        render(){
+          const { lightOn, counter } = this.state
+          return(
+            <div id="room" className={lightOn ? "light" : "dark"}>
+              
+            </div>
+          )
+        }
+      }
+      ReactDOM.render(<Lightbulb/>, document.body)
+    </script>
+  </body>
+</html>
