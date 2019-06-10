@@ -15,8 +15,17 @@
         <img
           src="https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/assets/image/lightbulb.png"
           alt="lightbulb"
-          id="lightbulb"
-          class="off"
+          class="lightbulb off"
+        />
+        <img
+          src="https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/assets/image/lightbulb.png"
+          alt="lightbulb"
+          class="lightbulb off"
+        />
+        <img
+          src="https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/assets/image/lightbulb.png"
+          alt="lightbulb"
+          class="lightbulb off"
         />
         <h1>
           You flicked the switch
@@ -28,13 +37,13 @@
     <script>
       const room        = document.querySelector('#room')
       const lightSwitch = document.querySelector('#lightswitch')
-      const lightBulb   = document.querySelector('#lightbulb')
+      const lightBulbs  = document.querySelectorAll('.lightbulb')
       const counter     = document.querySelector('#counter')
       const timesWord   = document.querySelector('#times-word')
 
       function flickTheSwitch(){
-        lightBulb.classList.toggle('off')
-        lightBulb.classList.toggle('on')
+        lightBulbs.forEach(lightBulb => lightBulb.classList.toggle('off'))
+        lightBulbs.forEach(lightBulb => lightBulb.classList.toggle('on'))
         room.classList.toggle('dark')
         room.classList.toggle('light')
         if(lightSwitch.textContent === 'OFF'){
