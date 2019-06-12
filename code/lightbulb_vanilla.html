@@ -27,20 +27,20 @@
     </main>
     <script>
       const room        = document.querySelector('#room')
-      const lightSwitch = document.querySelector('#lightswitch')
-      const lightBulb   = document.querySelector('#lightbulb')
+      const lightswitch = document.querySelector('#lightswitch')
+      const lightbulb   = document.querySelector('#lightbulb')
       const counter     = document.querySelector('#counter')
       const timesWord   = document.querySelector('#times-word')
 
       function flickTheSwitch(){
-        lightBulb.classList.toggle('off')
-        lightBulb.classList.toggle('on')
+        lightbulb.classList.toggle('off')
+        lightbulb.classList.toggle('on')
         room.classList.toggle('dark')
         room.classList.toggle('light')
-        if(lightSwitch.textContent === 'OFF'){
-          lightSwitch.textContent = 'ON'
+        if(lightswitch.textContent === 'OFF'){
+          lightswitch.textContent = 'ON'
         }else{
-          lightSwitch.textContent = 'OFF'
+          lightswitch.textContent = 'OFF'
         }
         counter.textContent ++
         if(counter.textContent == 1){
@@ -49,7 +49,7 @@
           timesWord.textContent = "times"
         }
       }
-      lightSwitch.addEventListener('click', flickTheSwitch)
+      lightswitch.addEventListener('click', flickTheSwitch)
     </script>
   </body>
 </html>

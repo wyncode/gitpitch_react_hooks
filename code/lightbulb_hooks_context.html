@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flick The Switch!</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://raw.githack.com/wyncode/gitpitch_react_hooks/master/assets/css/lightbulb.css"
+    />
+  </head>
+  <body>
+    <script type="text/babel">
+      const LightContext = React.createContext()
+      const CountContext = React.createContext()
+
+      const LightProvider = props => {
+        const [lightOn, setLightOn] = React.useState(false)
+        return(
+          <LightContext.Provider value={{lightOn, setLightOn}}>
+            { props.children }
+          </LightContext.Provider>
+        )
+      }
+
+      const CountProvider = props => {
+        const [count, setCount] = React.useState(0)
+        return(
+          <CountContext.Provider value={{count, setCount}}>
+            { props.children }
+          </CountContext.Provider>
+        )
+      }
+
+      const App = () => (
+        <LightProvider>
+          <CountProvider>
+            <Room />
+          </CountProvider>
+        </LightProvider>
+      )
+
+      const Room = () => {
+        const { lightOn }  = React.useContext(LightContext)
+        return(
+          <main id="room" className={lightOn ? "light" : "dark"}>
+            <section>
+              <Lightbulb />
+              <Counter/>
+              <LightSwitch />
+            </section>
+          </main>
+        )
+      }
+
+      const Lightbulb = () => {
+        const { lightOn } = React.useContext(LightContext)
+        return(
+          <img
+            src="https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/assets/image/lightbulb.png"
+            alt="lightbulb"
+            id="lightbulb"
+            className={lightOn ? "on" : "off"}
+          />
+        )
+      }
+
+      const Counter = () => {
+        const { count } = React.useContext(CountContext)
+        return(
+          <h1>You flicked the switch {count} time{count !== 1 && 's'}!</h1>
+        )
+      }
+
+      const LightSwitch = () => {
+        const { lightOn, setLightOn } = React.useContext(LightContext)
+        const { count, setCount }     = React.useContext(CountContext)
+
+        const flickTheSwitch = () => {
+          setLightOn(!lightOn)
+          setCount(count + 1)
+        }
+
+        return(
+          <button id="lightswitch" onClick={flickTheSwitch}>
+            {lightOn ? "ON" : "OFF" }
+          </button>
+        )
+      }
+
+      ReactDOM.render(<App/>, document.body)
+    </script>
+  </body>
+</html>

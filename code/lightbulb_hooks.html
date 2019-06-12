@@ -14,30 +14,24 @@
   </head>
   <body>
     <script type="text/babel">
-      class Room extends React.Component {
-        state = { lightOn: false, count: 0 }
+      const Room = () => {
+        const [lightOn, setLightOn] = React.useState(false)
+        const [count, setCount]     = React.useState(0)
 
-        flickTheSwitch = () => {
-          this.setState({
-            lightOn:  !this.state.lightOn,
-            count:    this.state.count + 1
-          })
+        const flickTheSwitch = () => {
+          setLightOn(!lightOn)
+          setCount(count + 1)
         }
 
-        render(){
-          const { lightOn, count } = this.state
-          return(
-            <main id="room" className={lightOn ? "light" : "dark"}>
-              <section>
-                <Lightbulb on={lightOn} />
-                <Lightbulb on={lightOn} />
-                <Lightbulb on={lightOn} />
-                <Counter count={count} />
-                <LightSwitch flickTheSwitch={this.flickTheSwitch} on={lightOn} />
-              </section>
-            </main>
-          )
-        }
+        return(
+          <main id="room" className={lightOn ? "light" : "dark"}>
+            <section>
+              <Lightbulb on={lightOn} />
+              <Counter count={count} />
+              <LightSwitch on={lightOn} flickTheSwitch={flickTheSwitch} />
+            </section>
+          </main>
+        )
       }
 
       const Lightbulb = props => (

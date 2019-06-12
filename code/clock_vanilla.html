@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vanilla JS Clock</title>
+    <style>
+      body{
+        margin: 0;
+        background-color: azure;
+        display: grid;
+        place-items: center;
+        font-size: 4rem;
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <span id="time">12:00 AM</span>
+    <script>
+      const time = document.getElementById('time')
+
+      const checkTime = () => {
+        time.textContent = new Date().toLocaleTimeString()
+      }
+
+      const interval = setInterval(checkTime, 100)
+
+      checkTime()
+    </script>
+  </body>
+</html>
