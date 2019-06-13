@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Forex Calculator</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+      body{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        place-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: mistyrose;
+      }
+      ul{
+        line-height: 1.2rem;
+        list-style: none;
+      }
+      input, select{
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/babel">
+      class ForexList extends React.Component{
+        state = { base: 'USD', rates: {}, amount: 1 }
+
+        fetchRates = base => {
+          fetch(`https://api.exchangeratesapi.io/latest?base=${base}`)
+            .then(response => response.json())
+            .then(({rates}) => this.setState({ rates, base }))
+        }
+
+        componentDidMount(){
+          const { base } = this.state
+          this.fetchRates(base)
+        }
+
+        handleSelect = event => {
+          const base = event.target.value
+          this.fetchRates(base)
+        }
+
+        handleAmountChange = event => {
+          const amount = event.target.value
+          this.setState({ amount })
+        }
+
+        render(){
+        const { amount, rates, base } = this.state
+          return(
+            <React.Fragment>
+              <div>
+                <h1>What's it worth?</h1>
+                <input
+                  type="number"
+                  min={1}
+                  value={amount}
+                  onChange={this.handleAmountChange}
+                />
+                <select onChange={this.handleSelect} value={base}>
+                  {
+                    Object.keys(rates).sort().map(currency => (
+                      <option value={currency}>{currency}</option>
+                    ))
+                  }
+                </select>
+              </div>
+              <div>
+                <ul>
+                  {
+                    Object.keys(rates).sort().map(currency => (
+                      <li key={currency}>
+                        {currency} {(amount * rates[currency]).toFixed(2)}
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </React.Fragment>
+          )
+        }
+      }
+
+      ReactDOM.render(<ForexList/>, document.body)
+    </script>
+  </body>
+</html>

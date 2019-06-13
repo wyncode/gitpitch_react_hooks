@@ -22,12 +22,10 @@
   <body>
     <script type="text/babel">
       const Clock = () => {
-        const initialTime     = new Date()
-        const [time, setTime] = React.useState(initialTime)
+        const [time, setTime] = React.useState(new Date())
 
         const checkTime = () => {
-          const now = new Date()
-          setTime(now)
+          setTime(new Date())
         }
 
         React.useEffect(

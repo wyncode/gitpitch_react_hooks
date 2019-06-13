@@ -21,16 +21,16 @@ body {
   color: black;
 }
 
-#lightbulb, .lightbulb {
+#lightbulb {
   transition: all 0.3s;
 }
 
-#lightbulb.off, .lightbulb.off {
+#lightbulb.off {
   visibility: hidden;
   opacity: 0;
 }
 
-#lightbulb.on, .lightbulb.on {
+#lightbulb.on {
   visibility: visible;
   opacity: 1;
 }
