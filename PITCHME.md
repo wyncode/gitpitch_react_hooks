@@ -56,3 +56,36 @@
 [Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/lightbulb_simple_react_functional.html)
 
 ---
+
+### Stateful Functions
+
+@code[sh](code/lightbulb_simple_react_hooks.html)
+
+@[17-22](useState to maintain state in a functional component, declare individual functions inside to change state)
+@[24-36](Just return JSX instead of using a render function, otherwise this is the same as if it were a class Component)
+
+[Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/lightbulb_simple_react_hooks.html)
+
+---
+
+### Functional Context
+
+@code[sh](code/lightbulb_simple_hooks_context.html)
+
+@[17-26](Create a context and a provider for that context.  The provider takes some local state and makes it accessible to any of its children that want to use that context.)
+@[28-36](The Room will want to use the LightContext.  So will the Lightbulb and the LightSwitch.  However, we can now decouple them and avoid having to pass down state as props.)
+@[38-48](The Lightbulb can consume the LightContext independent of the Room)
+@[50-62](Same goes for LightSwitch.  And now, the function that changes state lives in a place that makes a little more sense.)
+@[64-70](To make this work, we have to wrap the whole room in the LightProvider.  Lightbuld and LightSwitch get access because they are children of room.  ReactDOM renders the whole app, not just the Room.)
+
+[Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/lightbulb_simple_react_hooks_context.html)
+
+---
+
+### Pros / Cons
+
+* Classes no longer needed (performance enhancement?)
+* No need to remember binding or this (who cares?)
+* Enhanced access to Context API (Helps decouple presentation from data)
+* This is more code but...
+* Reduces need for Redux (none of these examples needed Redux, but you get the idea)
