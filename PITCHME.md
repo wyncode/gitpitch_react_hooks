@@ -38,6 +38,7 @@
 @[20-22](Declare an instance method that can change state)
 @[24-26](Declare a render function that returns some JSX)
 @[27,32,35](Declare how the component should display in various states)
+@[42](Have ReactDOM render the class into the DOM)
 
 [Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/lightbulb_simple_react_class.html)
 
