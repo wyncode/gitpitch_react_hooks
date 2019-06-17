@@ -28,7 +28,11 @@
   <body>
     <script type="text/babel">
       class ForexList extends React.Component{
-        state = { base: 'USD', rates: {}, amount: 1 }
+        state = {
+          base:   'USD',
+          rates:  {},
+          amount: 1
+        }
 
         fetchRates = base => {
           fetch(`https://api.exchangeratesapi.io/latest?base=${base}`)

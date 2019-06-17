@@ -11,26 +11,18 @@
   </head>
   <body>
     <main id="room" class="dark">
-      <section>
-        <img
-          src="https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/assets/image/lightbulb.png"
-          alt="lightbulb"
-          id="lightbulb"
-          class="off"
-        />
-        <h1>
-          You flicked the switch
-          <span id="counter">0</span> <span id="times-word">times</span>!
-        </h1>
-        <button id="lightswitch">OFF</button>
-      </section>
+      <img
+        src="https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/assets/image/lightbulb.png"
+        alt="lightbulb"
+        id="lightbulb"
+        class="off"
+      />
+      <button id="lightswitch">OFF</button>
     </main>
     <script>
       const room        = document.querySelector('#room')
       const lightswitch = document.querySelector('#lightswitch')
       const lightbulb   = document.querySelector('#lightbulb')
-      const counter     = document.querySelector('#counter')
-      const timesWord   = document.querySelector('#times-word')
 
       function flickTheSwitch(){
         lightbulb.classList.toggle('off')
@@ -42,13 +34,8 @@
         }else{
           lightswitch.textContent = 'OFF'
         }
-        counter.textContent ++
-        if(counter.textContent == 1){
-          timesWord.textContent = "time"
-        }else{
-          timesWord.textContent = "times"
-        }
       }
+
       lightswitch.addEventListener('click', flickTheSwitch)
     </script>
   </body>

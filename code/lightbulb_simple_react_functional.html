@@ -15,24 +15,18 @@
   <body>
     <script type="text/babel">
       class Room extends React.Component {
-        state = { lightOn: false, count: 0 }
+        state = { lightOn: false }
 
         flickTheSwitch = () => {
-          this.setState({
-            lightOn:  !this.state.lightOn,
-            count:    this.state.count + 1
-          })
+          this.setState({ lightOn: !this.state.lightOn })
         }
 
         render(){
-          const { lightOn, count } = this.state
+          const { lightOn } = this.state
           return(
             <main id="room" className={lightOn ? "light" : "dark"}>
-              <section>
-                <Lightbulb on={lightOn} />
-                <Counter count={count} />
-                <LightSwitch flickTheSwitch={this.flickTheSwitch} on={lightOn} />
-              </section>
+              <Lightbulb on={lightOn} />
+              <LightSwitch flickTheSwitch={this.flickTheSwitch} on={lightOn} />
             </main>
           )
         }
@@ -45,10 +39,6 @@
           id="lightbulb"
           className={props.on ? "on" : "off"}
         />
-      )
-
-      const Counter = props => (
-        <h1>You flicked the switch {props.count} time{props.count !== 1 && 's'}!</h1>
       )
 
       const LightSwitch = props => (
