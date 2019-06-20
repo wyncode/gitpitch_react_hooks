@@ -21,7 +21,7 @@
 
 @code[sh](code/lightbulb_simple_vanilla.html)
 
-@[13,18,20](Hard code in the default state into the HTML)
+@[13,17,18,20](Hard code in the default state into the HTML)
 @[23-25](Query the dynamic elements from the DOM)
 @[27-37](Write a function that manually changes the DOM)
 @[39](Attach the function to an event handler)
@@ -85,7 +85,60 @@
 ### Pros / Cons
 
 * Classes no longer needed (performance enhancement?)
-* No need to remember binding or this (who cares?)
+* No need to remember `bind` or `this` (who cares?)
 * Enhanced access to Context API (Helps decouple presentation from data)
 * This is more code but...
 * Reduces need for Redux (none of these examples needed Redux, but you get the idea)
+
+---
+
+### Class Clock
+
+@code[sh](code/clock_react.html)
+
+@[24-25](Declare the initial state inside a class component)
+@[35-37](Declare an instance method that can change state)
+@[39-45](Declare a render function that returns some JSX)
+@[27-33](Lifecycle methods may reference the instance `this`)
+
+[Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/clock_react.html)
+
+---
+
+### Hooks Clock
+
+@code[sh](code/clock_react_hooks.html)
+
+@[24-25](Declare initial state in a functional component)
+@[27-29](Declare a function that can change state)
+@[39](Return some JSX)
+@[31-37](useEffect instead of lifecycle methods)
+@[32-35](useEffect takes a function...)
+@[36](...and an array of dependencies -- in this case there are none)
+@[33](Set up similar to componentDidMount)
+@[34](Tear down similar to componentWillUnmount)
+
+[Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/clock_react_hooks.html)
+
+---
+
+### Context Clock
+
+@code[sh](code/clock_react_hooks_context.html)
+
+@[24-26](Create a context and a provider for that context.)
+@[27](The provider takes some local state...)
+@[41-45](and makes it accessible to any of its children that want to use that context.)
+@[29-31](Declare a function that can change state)
+@[33-39](useEffect instead of lifecycle methods)
+@[48-60](Clock is a functional stateless component)
+@[49](That consumes the TimeContext)
+@[53,56](And accepts a timeZone as a prop)
+@[62-68](App wraps 3 different clocks, each with its own timeZone, in a TimeProvider)
+@[70](ReactDOM renders the whole app inro the body)
+
+[Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/clock_react_hooks_context.html)
+
+---
+
+

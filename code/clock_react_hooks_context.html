@@ -48,10 +48,14 @@
       const Clock = props => {
         const { time } = React.useContext(TimeContext)
         return(
-          <span>
-            { props.timeZone }<br></br>
-            {time.toLocaleTimeString("en-US", { timeZone: props.timeZone})}
-          </span>
+          <main>
+            <div>
+              { props.timeZone }
+            </div>
+            <div>
+              { time.toLocaleTimeString("en-US", { timeZone: props.timeZone}) }
+            </div>
+          </main>
         )
       }
 
