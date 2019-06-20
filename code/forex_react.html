@@ -60,7 +60,7 @@
         }
 
         render(){
-        const { amount, rates, base } = this.state
+          const { amount, rates, base } = this.state
           return(
             <React.Fragment>
               <div>
@@ -74,7 +74,9 @@
                 <select onChange={this.handleSelect} value={base}>
                   {
                     Object.keys(rates).sort().map(currency => (
-                      <option value={currency}>{currency}</option>
+                      <option key={currency} value={currency}>
+                        {currency}
+                      </option>
                     ))
                   }
                 </select>

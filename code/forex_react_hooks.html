@@ -32,8 +32,9 @@
         const [rates, setRates] = React.useState({})
         const [amount, setAmount] = React.useState(1)
 
-        const fetchRates = base => {
-          fetch(`https://api.exchangeratesapi.io/latest?base=${base}`)
+        React.useEffect(
+          () => {
+            fetch(`https://api.exchangeratesapi.io/latest?base=${base}`)
             .then(response => response.json())
             .then(data => {
               const defaultRate = { EUR: 1.00 }
@@ -41,10 +42,7 @@
               setBase(base)
               setRates(rates)
             })
-        }
-
-        React.useEffect(
-          () => { fetchRates(base) },
+          },
           [base]
         )
 

@@ -120,7 +120,7 @@
 @[39](Return some JSX)
 @[31-37](useEffect instead of lifecycle methods)
 @[32-35](useEffect takes a function...)
-@[36](...and an array of dependencies -- in this case there are none)
+@[36](...and an array of dependencies -- in this case there are none, meaning this function will only run once.)
 @[33](Set up similar to componentDidMount)
 @[34](Tear down similar to componentWillUnmount)
 
@@ -158,5 +158,51 @@
 ![Forex](assets/gifs/forex.gif)
 
 ---
+
+## Class Forex
+
+@code[sh](code/forex_react.html)
+
+@[30-35](Declare the initial state inside a class component)
+@[37-45](Declare an instance method that can change state)
+@[47-50](Lifecycle method sets first meaningful state)
+@[52-60](Event handler functions that respond to user interaction)
+@[47-55](Note, we have to remember exactly when we need to refetch rates)
+@[64-67](Declare a render function that returns some JSX)
+@[68-74](Attach change handlers to corresponding change events)
+@[75-81](Declare how the component should display in various states)
+@[85-93](Declare how the component should display in various states)
+
+[Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/forex_react.html)
+
+---
+
+## Functional Forex
+
+@code[sh](code/forex_react_hooks.html)
+
+@[30-33](Set initial state inside of function)
+@[35-47](useEffect to fetch rates as soon as the page loads)
+@[46](This means we will automatically refetch rates every time the base changes.)
+@[46](When this array is empty, the function only executes once.)
+@[46](If this array is not present, the function will run on every single render.)
+@[49-55](Now these functions can be a lot simpler.)
+
+[Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/forex_react_hooks.html)
+
+---
+
+### Pros / Cons
+
+* Set up and tear down can go in the same place
+* Less code, but syntax is a little strange and magical
+* We will probably just get used to it?
+
+---
+
+# Bonus Content
+
+
+
 
 
