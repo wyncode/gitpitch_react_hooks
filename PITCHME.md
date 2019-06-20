@@ -92,6 +92,12 @@
 
 ---
 
+## Lifecycle / useEffect
+
+![Clock](assets/gifs/clock.gif)
+
+---
+
 ### Class Clock
 
 @code[sh](code/clock_react.html)
@@ -119,6 +125,12 @@
 @[34](Tear down similar to componentWillUnmount)
 
 [Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/clock_react_hooks.html)
+
+---
+
+## Context Clock
+
+![Clock](assets/gifs/context_clock.gif)
 
 ---
 
