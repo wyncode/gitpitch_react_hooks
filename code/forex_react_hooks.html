@@ -35,7 +35,9 @@
         const fetchRates = base => {
           fetch(`https://api.exchangeratesapi.io/latest?base=${base}`)
             .then(response => response.json())
-            .then(({rates}) => {
+            .then(data => {
+              const defaultRate = { EUR: 1.00 }
+              const rates = {...defaultRate, ...data.rates}
               setBase(base)
               setRates(rates)
             })

@@ -37,7 +37,11 @@
         fetchRates = base => {
           fetch(`https://api.exchangeratesapi.io/latest?base=${base}`)
             .then(response => response.json())
-            .then(({rates}) => this.setState({ rates, base }))
+            .then(data => {
+              const defaultRate = { EUR: 1.00 }
+              const rates = {...defaultRate, ...data.rates}
+              this.setState({ rates , base })
+            })
         }
 
         componentDidMount(){

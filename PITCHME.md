@@ -153,4 +153,10 @@
 
 ---
 
+## React Forex
+
+![Forex](assets/gifs/forex.gif)
+
+---
+
 
