@@ -233,4 +233,7 @@
 
 # React Hooks
 
-[useHooks.com](https://usehooks.com/)
+* [Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html)
+* [90% Cleaner Code with Hooks](https://www.youtube.com/watch?v=wXLf18DsV-I)
+* [useHooks.com](https://usehooks.com/)
+
