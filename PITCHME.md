@@ -83,7 +83,7 @@
 @[28-36](The Room will want to use the LightContext.  So will the Lightbulb and the LightSwitch.  However, we can now decouple them and avoid having to pass down state as props.)
 @[38-48](The Lightbulb can consume the LightContext independent of the Room)
 @[50-62](Same goes for LightSwitch.  And now, the function that changes state lives in a place that makes a little more sense.)
-@[64-70](To make this work, we have to wrap the whole room in the LightProvider.  Lightbuld and LightSwitch get access because they are children of room.  ReactDOM renders the whole app, not just the Room.)
+@[64-70](To make this work, we have to wrap the whole room in the LightProvider.  Lightbulb and LightSwitch get access because they are children of room.  ReactDOM renders the whole app, not just the Room.)
 
 [Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/lightbulb_simple_react_hooks_context.html)
 
@@ -127,7 +127,7 @@
 @[39](Return some JSX)
 @[31-37](useEffect instead of lifecycle methods)
 @[32-35](useEffect takes a function...)
-@[36](...and an array of dependencies -- in this case there are none, meaning this function will only run once.)
+@[36](...and an array of dependencies -- in this case there are none, meaning this function will only run once, right when the component mounts.)
 @[33](Set up similar to componentDidMount)
 @[34](Tear down similar to componentWillUnmount)
 
@@ -236,4 +236,3 @@
 * [Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html)
 * [90% Cleaner Code with Hooks](https://www.youtube.com/watch?v=wXLf18DsV-I)
 * [useHooks.com](https://usehooks.com/)
-
