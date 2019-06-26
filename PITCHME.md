@@ -223,11 +223,70 @@
 
 ---
 
-#### Independent Study
+#### Guided Study
 
 ![Fakebook](assets/gifs/fakebook.gif)
 
 [Get the Code](https://github.com/andyweiss1982/the_fakebook)
+
+---
+
+#### Guided Study
+
+```sh
+import React from 'react'
+import { UserProvider } from './contexts/UserContext'
+import Navbar from './components/Navbar'
+import Auth from './components/Auth'
+import Profile from './components/Profile'
+
+const App = () => (
+  <UserProvider>
+    <Navbar />
+    <Auth>
+      <Profile />
+    </Auth>
+  </UserProvider>
+)
+
+export default App
+```
+
+@[7-14](UserProvider wraps 3 components, each of which gets the current user through UserContext)
+
+---
+
+#### Guided Study
+
+```sh
+import React, { useContext } from 'react'
+import { UserContext } from '../contexts/UserContext'
+
+const Auth = props => {
+  const { user, signIn } = useContext(UserContext)
+
+  const authenticate = () => {
+    fetch('https://randomuser.me/api/?nat=us')
+      .then(response => response.json())
+      .then(data => signIn(data.results[0]))
+  }
+
+  if (user) return props.children
+  return (
+    <main>
+      <h1>Welcome to FakeBook</h1>
+      <button onClick={authenticate}>
+        Sign In
+      </button>
+    </main>
+  )
+}
+
+export default Auth
+```
+
+@[4-11](Auth gets signIn from UserContext, uses it to authenticate a random user.)
+@[13-21](If there is a user, Auth's children are rendered.  Otherwise a login screen.)
 
 ---
 
