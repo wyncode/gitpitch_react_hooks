@@ -23,19 +23,27 @@
 
         return(
           <main id="room" className={lightOn ? "light" : "dark"}>
-            <img
-              src="https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/assets/image/lightbulb.png"
-              alt="lightbulb"
-              id="lightbulb"
-              className={lightOn ? "on" : "off"}
-            />
-            <button id="lightswitch" onClick={flickTheSwitch}>
-              { lightOn ? "ON" : "OFF" }
-            </button>
+            <Lightbulb on={lightOn} />
+            <LightSwitch flickTheSwitch={this.flickTheSwitch} on={lightOn} />
           </main>
         )
       }
-      
+
+      const Lightbulb = props => (
+        <img
+          src="https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/assets/image/lightbulb.png"
+          alt="lightbulb"
+          id="lightbulb"
+          className={props.on ? "on" : "off"}
+        />
+      )
+
+      const LightSwitch = props => (
+        <button id="lightswitch" onClick={props.flickTheSwitch}>
+          {props.on ? "ON" : "OFF" }
+        </button>
+      )
+
       ReactDOM.render(<Room/>, document.body)
     </script>
   </body>

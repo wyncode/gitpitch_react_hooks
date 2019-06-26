@@ -2,13 +2,19 @@
 
 ---
 
-### Basic Example
+![Hooks](assets/image/hooks.png)
+
+[Try React](https://reactjs.org/docs/getting-started.html#try-react)
+
+---
+
+#### Basic Example
 
 ![Lightbulb](assets/gifs/lightbulb.gif)
 
 ---
 
-### Common Styles
+#### Common Styles
 
 @code[css](code/lightbulb.css)
 
@@ -17,7 +23,7 @@
 ---
 
 
-### Manual DOM Manipulation
+#### Manual DOM Manipulation
 
 @code[sh](code/lightbulb_simple_vanilla.html)
 
@@ -30,7 +36,7 @@
 
 ---
 
-### React Class Component
+#### React Class Component
 
 @code[sh](code/lightbulb_simple_react_class.html)
 
@@ -44,7 +50,7 @@
 
 ---
 
-### Stateless Components
+#### Smart Class / Dumb Functions
 
 @code[sh](code/lightbulb_simple_react_functional.html)
 
@@ -57,18 +63,19 @@
 
 ---
 
-### Stateful Functions
+#### Smart Functions
 
 @code[sh](code/lightbulb_simple_react_hooks.html)
 
 @[17-22](useState to maintain state in a functional component, declare individual functions inside to change state)
-@[24-36](Just return JSX instead of using a render function, otherwise this is the same as if it were a class Component)
+@[24-29](Everything else is the same as the last example)
+@[32-45](These components are still "dumb")
 
 [Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/lightbulb_simple_react_hooks.html)
 
 ---
 
-### Functional Context
+#### Functional Context
 
 @code[sh](code/lightbulb_simple_hooks_context.html)
 
@@ -82,7 +89,7 @@
 
 ---
 
-### Pros / Cons
+#### Takeaways
 
 * Classes no longer needed (performance enhancement?)
 * No need to remember `bind` or `this` (who cares?)
@@ -92,13 +99,13 @@
 
 ---
 
-## Lifecycle / useEffect
+#### Lifecycle / useEffect
 
 ![Clock](assets/gifs/clock.gif)
 
 ---
 
-### Class Clock
+#### Class Clock
 
 @code[sh](code/clock_react.html)
 
@@ -111,7 +118,7 @@
 
 ---
 
-### Hooks Clock
+#### Hooks Clock
 
 @code[sh](code/clock_react_hooks.html)
 
@@ -128,13 +135,13 @@
 
 ---
 
-## Context Clock
+#### Context Clock(s)
 
 ![Clock](assets/gifs/context_clock.gif)
 
 ---
 
-### Context Clock
+#### Context Clock(s)
 
 @code[sh](code/clock_react_hooks_context.html)
 
@@ -153,13 +160,29 @@
 
 ---
 
-## React Forex
+#### Takeaways
+
+* One piece of data can be shared with 3 different components via `useContext`
+* Props reserved for what _differentiates_ components, not simple data passing
+* Set up and tear down all in one place, but syntax takes getting used to
+
+---
+
+#### Independent Study
+
+![Dropdown Clock](assets/gifs/context_clock_dropdown.gif)
+
+[Get the Code](https://github.com/andyweiss1982/timezone-clock) | [useRef Easter Egg](https://github.com/andyweiss1982/timezone-clock/blob/f95c3b5ba2c07dc5b2ba694d59d85528d18d1ad1/src/components/TimeZonePicker.js#L9)
+
+---
+
+#### React Forex
 
 ![Forex](assets/gifs/forex.gif)
 
 ---
 
-## Class Forex
+#### Class Forex
 
 @code[sh](code/forex_react.html)
 
@@ -170,14 +193,14 @@
 @[47-55](Note, we have to remember exactly when we need to refetch rates)
 @[64-67](Declare a render function that returns some JSX)
 @[68-74](Attach change handlers to corresponding change events)
-@[75-81](Declare how the component should display in various states)
+@[74-82](Declare how the component should display in various states)
 @[85-93](Declare how the component should display in various states)
 
 [Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/forex_react.html)
 
 ---
 
-## Functional Forex
+#### Functional Forex
 
 @code[sh](code/forex_react_hooks.html)
 
@@ -192,7 +215,7 @@
 
 ---
 
-### Pros / Cons
+#### Pros / Cons
 
 * Set up and tear down can go in the same place
 * Less code, but syntax is a little strange and magical
@@ -200,9 +223,12 @@
 
 ---
 
-# Bonus Content
+#### Independent Study
 
+![Fakebook](assets/gifs/fakebook.gif)
 
+[Get the Code](https://github.com/andyweiss1982/the_fakebook)
 
+---
 
-
+# React Hooks
