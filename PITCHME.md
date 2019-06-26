@@ -253,6 +253,9 @@ export default App
 ```
 
 @[7-14](UserProvider wraps 3 components, each of which gets the current user through UserContext)
+@[9](Navbar shows user info and a sign out button, only if there is a user)
+@[10-12](Auth shows its children -- Profile -- if there is a user, or a login screen if not)
+@[11](Profile shows info about the current user)
 
 ---
 
