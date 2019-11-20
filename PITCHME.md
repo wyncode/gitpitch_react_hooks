@@ -209,7 +209,6 @@
 @[46](This means we will automatically refetch rates every time the base changes.)
 @[46](When this array is empty, the function only executes once.)
 @[46](If this array is not present, the function will run on every single render.)
-@[49-55](Now these functions can be a lot simpler.)
 
 [Get the Code](https://raw.githubusercontent.com/wyncode/gitpitch_react_hooks/master/code/forex_react_hooks.html)
 

@@ -46,14 +46,6 @@
           [base]
         )
 
-        const handleSelect = event => {
-          setBase(event.target.value)
-        }
-
-        const handleAmountChange = event => {
-          setAmount(event.target.value)
-        }
-
         return(
           <React.Fragment>
             <div>
@@ -62,9 +54,12 @@
                 type="number"
                 min={1}
                 value={amount}
-                onChange={handleAmountChange}
+                onChange={ e => setAmount(e.target.value) }
               />
-              <select onChange={handleSelect} value={base}>
+              <select
+                value={base}
+                onChange={ e => setBase(e.target.value) }
+              >
                 {
                   Object.keys(rates).sort().map(currency => (
                     <option key={currency} value={currency}>
